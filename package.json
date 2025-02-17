@@ -1,0 +1,18 @@
+{
+  "name": "irfanhalim-test-automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive --reporter mochawesome",
+    "report": "open -a 'google chrome' mochawesome-report/mochawesome.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "mocha": "^11.1.0",
+    "mochawesome": "^7.1.3"
+  }
+}
