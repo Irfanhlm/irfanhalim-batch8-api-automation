@@ -1,5 +1,4 @@
-# irfan halim - batch 8
-task API Automation
+# irfan halim - batch 8 (task api automation)
 
 I would like to express my deepest gratitude to Mas Ridwan for the exceptional guidance and support you have provided me. You have been an incredibly inspiring mentor, not only in terms of knowledge but also in my personal and professional development.
 
