@@ -1,15 +1,15 @@
 {
   "stats": {
-    "suites": 1,
-    "tests": 1,
-    "passes": 0,
+    "suites": 4,
+    "tests": 4,
+    "passes": 4,
     "pending": 0,
-    "failures": 1,
-    "start": "2025-02-17T22:49:48.503Z",
-    "end": "2025-02-17T22:49:50.526Z",
-    "duration": 2023,
-    "testsRegistered": 1,
-    "passPercent": 0,
+    "failures": 0,
+    "start": "2025-02-18T09:28:23.532Z",
+    "end": "2025-02-18T09:28:25.011Z",
+    "duration": 1479,
+    "testsRegistered": 4,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,17 +18,17 @@
   },
   "results": [
     {
-      "uuid": "b7920624-2f8d-476a-8f9c-21569e93cd37",
+      "uuid": "4f87d5d8-624a-49fb-8d73-8c7764dce897",
       "title": "",
-      "fullFile": "/Users/hahahlm/qa-engineer/test-api/irfanhalim-test-automation/test/reqres-in/createUsers.js",
-      "file": "/test/reqres-in/createUsers.js",
+      "fullFile": "",
+      "file": "",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "1d3f876e-ffc4-4566-ad86-2da57d40d89b",
-          "title": "CREATE USERS",
+          "uuid": "614774e6-7581-4b0d-b817-1c74f7ee0a3e",
+          "title": "create users (POST)",
           "fullFile": "/Users/hahahlm/qa-engineer/test-api/irfanhalim-test-automation/test/reqres-in/createUsers.js",
           "file": "/test/reqres-in/createUsers.js",
           "beforeHooks": [],
@@ -36,35 +36,148 @@
           "tests": [
             {
               "title": "should create a user",
-              "fullTitle": "CREATE USERS should create a user",
-              "timedOut": true,
-              "duration": 2018,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "fullTitle": "create users (POST) should create a user",
+              "timedOut": false,
+              "duration": 516,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
-              "code": "const url = 'https://reqres.in/api/users';\nconst payload = {\n    \"name\": \"morpheus\",\n    \"job\": \"leader\"\n}\nconst response = await fetch(url, {\n    method: 'POST',\n    headers: {\n        'Content-Type': 'application/json'\n    },\n    body: JSON.stringify(payload)\n});\nconst data = await response.json();\nconsole.log(\"Response: \" + JSON.stringify(data));",
-              "err": {
-                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/Users/hahahlm/qa-engineer/test-api/irfanhalim-test-automation/test/reqres-in/createUsers.js)",
-                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/Users/hahahlm/qa-engineer/test-api/irfanhalim-test-automation/test/reqres-in/createUsers.js)\n    at listOnTimeout (node:internal/timers:569:17)\n    at process.processTimers (node:internal/timers:512:7)",
-                "diff": null
-              },
-              "uuid": "af81bbcb-2627-4bd3-a149-bd7fceff3369",
-              "parentUUID": "1d3f876e-ffc4-4566-ad86-2da57d40d89b",
+              "code": "this.timeout(5000);\nconst url = 'https://reqres.in/api/users';\nconst payload = {\n    \"name\": \"morpheus\",\n    \"job\": \"leader\"\n}\nconst response = await fetch(url, {\n    method: 'POST',\n    headers: {\n        'Content-Type': 'application/json'\n    },\n    body: JSON.stringify(payload)\n});\nconst data = await response.json();\nconst validate = ajv.compile(schema);\nconst valid = validate(data);\nif (!valid) {\n    console.log('ini adalah isi error: ', validate.errors);\n}\n\nassert.ok(valid, \"respone JSON should be valid\");\nassert.strictEqual(response.status, 201, 'User created successfully');\nassert.strictEqual(data.name, 'morpheus');\nassert.strictEqual(data.job, 'leader');",
+              "err": {},
+              "uuid": "adea348c-c9d6-4cb9-9375-b833d0dc61ad",
+              "parentUUID": "614774e6-7581-4b0d-b817-1c74f7ee0a3e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "af81bbcb-2627-4bd3-a149-bd7fceff3369"
+          "passes": [
+            "adea348c-c9d6-4cb9-9375-b833d0dc61ad"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2018,
+          "duration": 516,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "e814cbf4-0f33-4f18-883b-9e9a2c1cfbe2",
+          "title": "delete users (DELETE)",
+          "fullFile": "/Users/hahahlm/qa-engineer/test-api/irfanhalim-test-automation/test/reqres-in/deleteUsers.js",
+          "file": "/test/reqres-in/deleteUsers.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should delete a user",
+              "fullTitle": "delete users (DELETE) should delete a user",
+              "timedOut": false,
+              "duration": 461,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(5000);\nconst url = 'https://reqres.in/api/users/2';\nconst response = await fetch(url, { method: 'DELETE' });\nconst validate = ajv.compile(schema);\nconst valid = validate(response);\n\nif (!valid) {\n    console.log('ini adalah isi error: ', validate.errors);\n}\nassert.ok(valid, \"Response should be valid\");\nassert.strictEqual(response.status, 204, 'User deleted successfully');\nassert.strictEqual(response.type, 'basic');\nassert.strictEqual(response.statusText, 'No Content');",
+              "err": {},
+              "uuid": "32468f85-ffce-45f4-88ff-9a01fdbdb54c",
+              "parentUUID": "e814cbf4-0f33-4f18-883b-9e9a2c1cfbe2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "32468f85-ffce-45f4-88ff-9a01fdbdb54c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 461,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "58f10ec8-ed3a-455c-ad4c-df3dba112021",
+          "title": "get users (GET)",
+          "fullFile": "/Users/hahahlm/qa-engineer/test-api/irfanhalim-test-automation/test/reqres-in/getUsers.js",
+          "file": "/test/reqres-in/getUsers.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should get all users",
+              "fullTitle": "get users (GET) should get all users",
+              "timedOut": false,
+              "duration": 42,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(5000);\nconst url = 'https://reqres.in/api/users?page=2';\nconst response = await fetch(url);\nconst data = await response.json();\nconst validate = ajv.compile(schema);\nconst valid = validate(data);\nif (!valid) {\n    console.log('ini adalah isi error: ', validate.errors);\n}\nassert.ok(valid, \"respone JSON should be valid\");\nassert.strictEqual(response.status, 200, 'Users fetched successfully');\nassert.ok(Array.isArray(data.data), 'Response should be an array');",
+              "err": {},
+              "uuid": "83b5f018-974c-44e9-ba24-415af6ae6e05",
+              "parentUUID": "58f10ec8-ed3a-455c-ad4c-df3dba112021",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "83b5f018-974c-44e9-ba24-415af6ae6e05"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 42,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "bc1568e7-02dc-43b1-aea9-43344e5f1082",
+          "title": "update users (PATCH)",
+          "fullFile": "/Users/hahahlm/qa-engineer/test-api/irfanhalim-test-automation/test/reqres-in/updateUsers.js",
+          "file": "/test/reqres-in/updateUsers.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should get all users",
+              "fullTitle": "update users (PATCH) should get all users",
+              "timedOut": false,
+              "duration": 455,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(5000);\nconst url = 'https://reqres.in/api/users/2';\nconst payload = {\n    \"name\": \"morpheus\",\n    \"job\": \"zion resident\"\n}\nconst response = await fetch(url, {\n    method: 'PATCH',\n    headers: {\n        'Content-Type': 'application/json'\n    },\n    body: JSON.stringify(payload)\n});\nconst data = await response.json();\nconst validate = ajv.compile(schema);\nconst valid = validate(data);\nif (!valid) {\n    console.log('ini adalah isi error: ', validate.errors);\n}\n\nassert.ok(valid, \"respone JSON should be valid\");\nassert.strictEqual(response.status, 200, 'User updated successfully');\nassert.strictEqual(data.name, 'morpheus');\nassert.strictEqual(data.job, 'zion resident');\nassert.strictEqual(data.updatedAt, data.updatedAt);",
+              "err": {},
+              "uuid": "421ab672-6846-465c-8888-f60d7e256a0d",
+              "parentUUID": "bc1568e7-02dc-43b1-aea9-43344e5f1082",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "421ab672-6846-465c-8888-f60d7e256a0d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 455,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

@@ -28,7 +28,7 @@ const schema = {
     ]
 }
 
-describe('CREATE USERS', function() {
+describe('create users (POST)', function() {
     it('should create a user', async function() {
         this.timeout(5000);
         const url = 'https://reqres.in/api/users';
