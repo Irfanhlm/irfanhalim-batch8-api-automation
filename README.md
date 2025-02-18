@@ -9,4 +9,5 @@ I truly appreciate every learning moment and experience I've gained, and I look 
 Once again, thank you for all the help and mentorship you've given. I hope we can continue to collaborate and grow together in the future.
 
 Best regards,
+
 Irfan Halim
